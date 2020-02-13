@@ -2,4 +2,13 @@
 
 **Notas de clase de estadística**.
 
-Renglón de prueba
+## Parte 1
+
+* Obejtivo principal
+* Estadística
+* Conceptos
+* Variables
+* Estadísticos
+* Medidas de dispersión
+* Medidas de posición
+* Medidas de distribución o forma
