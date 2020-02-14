@@ -21,3 +21,14 @@ Descripción de algunas funciones de R para obtener algunos valores estadístico
 
 * Estadística con R
 * Gráficos con R
+
+---
+
+## Parte 3
+
+* Importando la base de datos
+* Análisis descriptivo
+* Estructura de los datos
+* Variables cualitativas
+* Análisis gráfico con R
+...

@@ -1,0 +1,168 @@
+---
+title: "Parte 3"
+subtitle: "Análisis descriptivo y exploratorio con R"
+author: "CRG"
+date: "`r Sys.Date()`"
+output: 
+    html_document:
+      toc: true
+      toc_float: true
+      toc_depth: 4
+      number_sections: true
+      code_folding: show
+      df_print: paged
+      
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Importando la base de datos
+
+La base de datos contiene las respuestas de un total de 33 de estudiantes, a diferentes preguntas hechas en el salón de clase.
+
+```{r}
+losdatos <- read.csv("Encuesta.csv")
+```
+
+# Análisis descriptivo
+
+Se hará la descripción numérica de las variables haciendo uso de la funciones que proporciona [R](https://www.r-project.org/).
+
+* `mean()`: obtener la media.
+* `median()`: obtener la mediana.
+* `mode()`: obtener la moda.
+* `sd`: obtener la desviación estándar.
+* `var()`: obtener la varianza.
+* `min()`: obtener el valor mínimo.
+* `max()`: obtener el valor máximo.
+* `range()`: obtener el rango.
+* `quantile()`: obtener cuartiles, deciles y percentiles.
+* `IQR()`: obtener el rango intercuartílico.
+* `table()`: obtener frecuencias absolutas.
+* `prop.table()`: obtener frecuencias relativas.
+* `summary()`: resumen numérico inicial de los datos.
+
+
+# Estructura de los datos
+
+La estructura de la base de datos, evidencia que el número de filas presentes es de 33, y las variables (columnas) son 17.
+
+La naturaleza de algunas variables:
+* `Color` es factor
+* `Redes` es numérica
+* `Horas_dormir` es entero
+
+```{r}
+str(losdatos)
+```
+
+# Variables cualitativas
+
+## Frecuencia absoluta 
+
+Para la pregunta:
+
+**¿Cuántos estudiantes poseen trabajo remunerado al momento de responder la encuesta?**,
+
+se obtienen las frecuencias absolutas.
+
+```{r}
+table(losdatos$Trabajo)
+```
+
+## Frecuencia relativa
+
+Para la misma pregunta, se obtienen las frecuencias relativas y sus porcentajes:
+
+```{r}
+prop.table(table(losdatos$Trabajo))
+prop.table(table(losdatos$Trabajo))*100
+
+```
+
+# Análisis gráfico con R
+
+- *Gráficos para variables cuantitativas*:
+    - hist(): función que permite construir histogramas.
+    - density(): función que permite obtener densidades.
+    - boxplot(): función que permite construir diagramas de cajas y bigotes.
+    - plot(): función genérica que permite construir diagramas de dispersión (X vs Y).
+
+
+- *Gráficos para variables cualitativas*:
+    - barplot: función que permite construir diagrama de barras.
+    - pie(): función que permite construir diagrama de sectores.
+
+
+```{r}
+barplot(table(losdatos$Trabajo),
+        main = "¿Posee trabajo remunerado?",
+        xlab = "Respuesta",
+        ylab = "Frecuencia",
+        col = "orange")
+```
+
+
+
+```{r}
+pie(table(losdatos$Trabajo),
+    main = "¿Posee trabajo remunerado?",
+    col = c("cadetblue", "darkorchid1"))
+```
+
+**¿Cúal es el medio de transporte más utilizado por los estudiantes para dirigirse a la universidad?**
+
+```{r}
+table(losdatos$Transporte)
+prop.table(table(losdatos$Transporte))
+
+```
+
+```{r}
+barplot(prop.table(table(losdatos$Transporte)),
+        main = "Medio de transporte de mayor uso",
+        xlab = "Transporte",
+        ylab = "Frecuencia relativa",
+        col = "darkslategray")
+```
+
+**¿Cuál es el medio de transporte de mayor uso en estudiantes que poseen trabajo remunerado?**
+
+
+```{r}
+table(losdatos$Trabajo, losdatos$Transporte)
+
+prop.table(table(losdatos$Trabajo, losdatos$Transporte))
+
+frecuencia <- table(losdatos$Trabajo, losdatos$Transporte)
+```
+
+```{r}
+barplot(frecuencia, beside = TRUE,
+        main = "Transporte de mayor uso vs Trabajo remunerado",
+        xlab = "Transporte",
+        ylab = "Frecuencia absoluta",
+        col = c("darkolivegreen4", "dodgerblue4"))
+legend(x = 3, y = 9, c("No", "Sí"),
+       fill = c("darkolivegreen4", "dodgerblue4"))
+```
+
+```{r}
+barplot(t(frecuencia), beside = TRUE,
+        main = "Transporte de mayor uso vs Trabajo remunerado",
+        xlab = "Trabajo remunerado",
+        ylab = "Frecuencia absoluta",
+        col = c("chocolate", "cadetblue4", "brown", "darkseagreen"))
+
+legend(x = 1, y = 9,
+       c("Bicicleta", "Moto", "Otro", "Urbano"),
+       fill = c("chocolate", "cadetblue4", "brown","darkseagreen"))
+```
+
+
+# Referencias
+
+* https://bioestadistica.github.io/
+* https://www.r-project.org/
