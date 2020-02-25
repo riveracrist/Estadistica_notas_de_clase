@@ -17,7 +17,7 @@
 
 ## Parte 2
 
-Descripción de algunas funciones de R para obtener algunos valores estadísticos y algunos gráficos.
+Descripción de algunas funciones con R para obtener valores estadísticos y algunos gráficos.
 
 * Estadística con R
 * Gráficos con R
