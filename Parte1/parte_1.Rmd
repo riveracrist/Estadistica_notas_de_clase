@@ -3,7 +3,7 @@ title: "Parte 1"
 subtitile: "Definiciónes y conceptos básicos"
 author: "CRG"
 date: "`r Sys.Date()`"
-output: 
+output:
     html_document:
       toc: true
       toc_float: true
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Objetivo principal
 
 <center>
-![**Data Science**](/imagenes/data_science_venn.jpg)
+![**Data Science**](data_science_venn.png)
 </center>
 
 
@@ -35,7 +35,7 @@ Matemática aplicada que permite interactuar con un conjunto de datos, además d
 
 ### Objetivos
 
-* Evalura la calidad y consistencia de los datos.
+* Evaluar la calidad y consistencia de los datos.
 
 * Determinar la distribución de las variables en estudio.
 
@@ -59,11 +59,11 @@ La estadística inferencial o deductiva se encarga de realizar **generalizacione
 * Estimación de parámetros
     * estimación puntual
     * estimación por intervalos
-    
+
 * Contraste de hipótesis
     * hipótesis nula
     * hipótesis alternativa
-    
+
 ## Resumen
 
 <center>
@@ -140,12 +140,12 @@ Características de interés que se pretende analizar en un individiuo o grupo d
 * Cualitativas
     * dicotómicas
     * politómicas
-    
-    
+
+
 * Cuantitativas
     * discretas
     * continuas
-    
+
 ## Variables [cualitativas](https://www.lifeder.com/variable-cualitativa/)
 
 Una variable cualitativa, también llamada variable categórica, es la que toma en consideración una característica. Su función es la expresión de cualidades o peculiaridades de personas, objetos o situaciones que no tienen carácter numérico.
@@ -190,18 +190,18 @@ Los estadísticos o valores típicos pretenden __caracterizar o describir la mue
     * media
     * mediana
     * moda
-    
+
 * **Dispersión**
     * desviación estándar
     * varianza
     * rango
     * rango intercuartil
-    
+
 * **Posición**
     * cuartiles
     * deciles
     * percentiles
-    
+
 * **Distribución**
     * asimetría
     * curtosis
@@ -226,7 +226,7 @@ Cuando se tinene variables discretas, es posible que el resultado de $\overline{
 
 Es el valor central, cuando se ordenan de menor a mayor los valores. La mediana deja por enciame y por debajo de ella, el $50%$ de los datos.
 
-No se ve afectada por valores extremos. 
+No se ve afectada por valores extremos.
 
 * En distribuciones simétricas la media es aproximadamente igual a la modiana.
 
@@ -243,28 +243,11 @@ La moda es el valor que ocurre con mayor frecuencia, es decir el dato que más s
     * unimodal
     * bimodal
     * multimodal
-    
+
 
 ## Media ponderada($Mp$)
 
 Es una medida apropiada cuando en un conjunto de datos cada uno de ellos tiene una importancia relativa (o peso) respecto a los demás datos. Se obtiene multiplicando cad uno de los datos por su ponderación (peso) para luego sumarlos, obteniendo así una suma ponderada, después se divide esta, entre la sima de los pesos.
-
-
-### Ejemplo
-
-Las comisiones recibidas por un corredor de bolsa durante los últimos seis meses se representan en la siguiente tabla las siguientes.
-
-|Acción|% de ganancia|Cantidad|Total COP|
-|:---:|:---:|:---:|:---:|
-|x|0.03|80|1350600|
-|y|0.07|35|896200|
-|z|0.06|67|1056000|
-
-
-Las notas obtenidas por cierto estudiante de bachillerato se presentan a continuación:
-
-||
-
 
 
 # Medidas de dispersión
@@ -343,15 +326,15 @@ Dividen la muestra en cuatro partes iguales
 
 * Cuartil 1:
     * 25% de las observaciones
-    
+
 * Cuartil 2:
     * 50% de las observaciones
-    
+
 * Cuartil 3:
     * 75% de las observaciones  
-    
+
 <center>    
-![Cuartil](/imagenes/cuartil.png)  
+![Cuartil](cuartil.png)  
 </center>
 
 Ubicación del cuartil:
@@ -368,7 +351,7 @@ El rango intercuartílico se obtiene como la diferencia entre los cuartiles $Q_3
 Ejemplo:
 
 <center>
-![RIQ](/imagenes/RIQ.png)  
+![RIQ](RIQ.png)  
 </center>
 
 
@@ -401,15 +384,17 @@ Evalúa el grado de concentración de los datos alrededor de la media y de los e
 * Distribución leptocúrtica: $g_2>0$
 * Distribución platicúrtica: $g_2<0$
 
+$$g_2 = \frac{n(n+1)}{(n-1)(n-2)(n-3)} * \frac{\sum_{i=1}^{n}(x_1 - \overline{x})^4}{S^4} - \frac{3(n-1)^2}{(n-2)(n-3)}$$
 
 
+<!--- 
 # Mejoras para el documento
 
-* Nombrar tablas y enumerarlas
-* Enumarar ecuaciones
-* Enumerar y nombrara gráficos
+* Nombrar tablas y enumerarlas.
+* Enumerar ecuaciones.
+* Enumerar y nombrar gráficos.
 * Agregar ejemplos para moda , media, media.
-
+--->
 
 # Referencias
 

@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = TRUE)
 La base de datos contiene las respuestas de un total de 33 de estudiantes, a diferentes preguntas hechas en el salón de clase.
 
 ```{r}
-losdatos <- read.csv("Encuesta.csv")
+losdatos <- read.csv("Encuesta.csv" , dec = ",")
 ```
 
 # Análisis descriptivo
@@ -50,6 +50,7 @@ Se hará la descripción numérica de las variables haciendo uso de la funciones
 La estructura de la base de datos, evidencia que el número de filas presentes es de 33, y las variables (columnas) son 17.
 
 La naturaleza de algunas variables:
+
 * `Color` es factor
 * `Redes` es numérica
 * `Horas_dormir` es entero
@@ -57,6 +58,11 @@ La naturaleza de algunas variables:
 ```{r}
 str(losdatos)
 ```
+
+```{r}
+losdatos
+```
+
 
 # Variables cualitativas
 
@@ -95,6 +101,7 @@ prop.table(table(losdatos$Trabajo))*100
     - barplot: función que permite construir diagrama de barras.
     - pie(): función que permite construir diagrama de sectores.
 
+# Variables cualitativas
 
 ```{r}
 barplot(table(losdatos$Trabajo),
@@ -161,8 +168,254 @@ legend(x = 1, y = 9,
        fill = c("chocolate", "cadetblue4", "brown","darkseagreen"))
 ```
 
+# Variables cuantitativas
+
+La variable PAPA es el Promedio Aritmético Ponderado Acumulado de cada estudiante, a lo largo de su carrera en la universidad. Los valores para esta variable van de cero $0$ a cinco $5$.
+
+Se obtendrá la media, la varianza y la desviación estándar para esta variable.
+
+
+```{r}
+mean(losdatos$PAPA)
+var(losdatos$PAPA)
+sd(losdatos$PAPA)
+```
+
+Cuartiles variable PAPA:
+
+$$Q_k = \frac{k(n+1)}{4}$$
+$$Q_3= \frac{3(33+1)}{4} = 25.5$$
+```{r}
+n <- 33
+q3 <- (3*(33+1))/4
+q3
+```
+
+```{r}
+quantile(losdatos$PAPA)
+```
+
+Ordenar los valores de la variable PAPA:
+
+```{r}
+ord.papa <- sort(losdatos$PAPA)
+ord.papa
+ord.papa[3]
+ord.papa[33]
+ord.papa[25]
+ord.papa[26]
+```
+
+Deciles variable PAPA:
+
+```{r}
+quantile(losdatos$PAPA, probs = seq(0, 1, 0.10))
+```
+
+Percentiles variable PAPA:
+
+```{r}
+quantile(losdatos$PAPA, probs = seq(0, 1, 0.01))
+```
+
+
+## Histogramas y densidades
+
+Distribución de la variable PAPA:
+```{r}
+hist(losdatos$PAPA)
+```
+
+Editando el histograma:
+```{r}
+hist(losdatos$PAPA,
+     col = "cadetblue",
+     main = "Distribución del Promedio\n Aritmético Ponderado Acumulado",
+     xlab = "Promedio Aritmético Ponderado Acumulado (PAPA)",
+     ylab = "Frecuencia",
+     xlim = c(2.5, 5),
+     ylim = c(0, 12))
+grid()
+```
+
+Editando el histograma con línea de densidad:
+
+```{r}
+hist(losdatos$PAPA,
+     col = "chocolate",
+     las = 1,
+     main = "Distribución del Promedio\n Aritmético Ponderado Acumulado",
+     ylab = "Densidad",
+     xlab = "Promedio Aritmético Ponderado Acumulado (PAPA)",
+     xlim = c(2.5, 5),
+     ylim = c(0, 2),
+     freq = FALSE,
+     xaxt = "n")
+axis(1, at = seq(2.6, 4.8, 0.1))
+lines(density(losdatos$PAPA),
+      col = "darkolivegreen",
+      lwd = 2)
+abline(v = mean(losdatos$PAPA), lwd = 2, lty = 2, col = "darkred")
+grid()
+```
+
+## Coeficiente de asimetría:
+
+```{r}
+library(moments)
+skewness(losdatos$PAPA)
+```
+
+## Coeficiente de curtosis:
+
+```{r}
+library(moments)
+kurtosis(losdatos$PAPA)
+```
+
+## Diagrama de cajas y bigotes (boxplot)
+<br>
+
+<center>
+![](boxplot.png)
+</center>
+
+<center>
+[Boxplot](https://2.bp.blogspot.com/-wVfcL_Gw3EE/VXC_T9iHL5I/AAAAAAAAAAc/_PscBwZm0ZQ/s400/Sin%2Bt%25C3%25ADtulo.png)
+</center>
+
+Función boxplot:
+
+```{r}
+boxplot(losdatos$PAPA)
+```
+
+Editando boxplot:
+
+```{r}
+boxplot(losdatos$PAPA,
+        main = "Boxplot variable PAPA",
+        xlab = "",
+        ylab = "PAPA",
+        col = "turquoise4")
+abline(h = mean(losdatos$PAPA), col = "azure4",
+       lwd = 2,
+       lty = 2)
+```
+
+Boxplot comparativo (trabajo remunerado):
+
+```{r}
+boxplot(losdatos$PAPA ~ losdatos$Trabajo,
+        main = "Boxplot PAPA",
+        xlab = "Trabajo remunerado",
+        ylab = "PAPA",
+        col = "gold3")
+```
+
+Boxplot comparativo (carrera profesional como primera opción):
+
+```{r}
+boxplot(losdatos$PAPA ~ losdatos$Carrera,
+        main = "Boxplot PAPA",
+        xlab = "Carrera profesional",
+        ylab = "PAPA",
+        col = "darkslateblue")
+```
+
+## Diagramas de dispersión
+
+¿Es posible plantear que existe algún tipo de relación entre el PAPA y las horas que dedica el estudiante a las actividades académicas?
+
+Función plot:
+
+```{r}
+plot(x = losdatos$Horas_acad,
+     y = losdatos$PAPA)
+abline(lm(losdatos$PAPA ~ losdatos$Horas_acad))
+```
+
+Edición del gráfico:
+
+```{r}
+plot(x = losdatos$Horas_acad,
+     y = losdatos$PAPA,
+     col = "black",
+     pch = 19,
+     xlab = "Horas de dedicación académica",
+     ylab = "PAPA",
+     main = "Relación de actividad académica vs PAPA")
+abline(lm(losdatos$PAPA ~ losdatos$Horas_acad),
+       lwd = 2,
+       col = "red")
+```
+
+Gráfico construido con biblioteca `ggplot2`:
+
+```{r}
+library(ggplot2)
+ggplot(data = losdatos,
+       aes(x = Horas_acad,
+           y = PAPA)) + 
+  geom_point()
+```
+
+Editando con `ggplot2`
+
+```{r}
+ggplot(data = losdatos,
+       aes(x = Horas_acad,
+           y = PAPA)) +
+  geom_point() +
+  geom_smooth(se = FALSE, color = "green") +
+  geom_smooth(method = "lm", se = FALSE, color = "orange") +
+  labs(x = "Horas de dedicación académica",
+       y = "PAPA",
+       title = "Relación de actividad académica vs PAPA",
+       caption = "Línea naranja: modelo lineal\n
+       Línea verde: modelo no lineal")
+```
+
+## Diagrama de barras para variables cuantitativas
+
+```{r}
+promedios <- tapply(X = losdatos$Casa_univer, INDEX = losdatos$Transporte, FUN = mean)
+promedios
+```
+
+Gráfico de barras para representar promedios:
+
+```{r}
+barplot(promedios,
+        main = "Tiempo de llegada a la universidad vs Medio de transporte",
+        xlab = "Transporte",
+        ylab = "Minutos",
+        ylim = c(0, 50),
+        col = c(2, 28, 6, 3))
+```
+
+```{r}
+barras <- barplot(promedios,
+        main = "Tiempo de llegada a la universidad vs Medio de transporte",
+        xlab = "Transporte",
+        ylab = "Minutos",
+        ylim = c(0, 50),
+        col = c(2, 28, 6, 3))
+text(x = barras,
+     y = promedios + 2,
+     labels = round(promedios,
+                    digits = 1))
+```
+
+# Resumen de las variables
+
+```{r}
+summary(losdatos)
+```
+
 
 # Referencias
 
 * https://bioestadistica.github.io/
 * https://www.r-project.org/
+* https://www.r-graph-gallery.com/ggplot2-color.html

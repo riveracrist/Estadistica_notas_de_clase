@@ -15,12 +15,11 @@ output:
 
 
 ```{r setup, include=TRUE}
-knitr::opts_chunk$set(echo = TRUE, ## muestra el código
-                      warning = FALSE, ## muestra advertencias de la consola
-                      error = FALSE, ## muestra error del código
-                      message = FALSE, ## muestra mensajes de la consola
-                      eval = TRUE, ## muestra el resultado del código
-                      fig.align = "center" ## alinear por defecto imágenes hechas en código R
+knitr::opts_chunk$set(echo = TRUE, 
+                      warning = FALSE, 
+                      error = FALSE, 
+                      message = FALSE, 
+                      eval = TRUE 
                       )
 
 ```
