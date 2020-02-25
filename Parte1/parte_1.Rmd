@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Objetivo principal
 
 <center>
-![**Data Science**](/home/crg/mi-carpeta/2020/estadistica/apuntes_estadistica/Parte1/imagenes/data_science_venn.jpg)
+![**Data Science**](/imagenes/data_science_venn.jpg)
 </center>
 
 
@@ -351,7 +351,7 @@ Dividen la muestra en cuatro partes iguales
     * 75% de las observaciones  
     
 <center>    
-![Cuartil](/home/crg/mi-carpeta/2020/estadistica/apuntes_estadistica/Parte1/imagenes/cuartil.png)  
+![Cuartil](/imagenes/cuartil.png)  
 </center>
 
 Ubicación del cuartil:
@@ -368,7 +368,7 @@ El rango intercuartílico se obtiene como la diferencia entre los cuartiles $Q_3
 Ejemplo:
 
 <center>
-![RIQ](/home/crg/mi-carpeta/2020/estadistica/apuntes_estadistica/Parte1/imagenes/RIQ.png)  
+![RIQ](/imagenes/RIQ.png)  
 </center>
 
 
