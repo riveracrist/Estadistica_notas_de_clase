@@ -68,7 +68,7 @@ La estadística inferencial o deductiva se encarga de realizar **generalizacione
 
 <center>
 |**Descriptiva**|**Inferencial**|
-|:---:|:---:|
+|:---|:---|
 |Resumen de información|Generalización de resultados|
 |Variables cualitativas, cuantitativas|Variables cualitativas, _cuantitativas_|
 |Medidas de resumen, tablas, gráficos|Estimación de parámetros, contraste de hipótesis|
@@ -128,7 +128,7 @@ Conjunto de supuestos o presuposiciones acerca del fenómeno bajo estudio. Un mo
 
 ## Individuo
 
-Cualquier individuo que porte información sobre el fenómeno obajo estudio.
+Cualquier individuo que porte información sobre el fenómeno bajo estudio.
 
 # Variables
 
@@ -168,11 +168,11 @@ Una variable cualitativa, también llamada variable categórica, es la que toma 
 ## Variables [cuantitativas](https://enciclopediaeconomica.com/variable-cuantitativa/)
 
 
-Son aquellas variables que otorgan un resultado representado por un valore numérico.
+Son aquellas variables que otorgan un resultado representado por un valor numérico.
 
 * _Discreta_: variable que no puede tomar valores intermedios entre dos valores consecutivos. Dicho de otra manera son variables que toman valores enteros. Ejemplos de esta variable es el número de hijos, el número de empleados, cantidad de cuentas bancarias. (1, 2, 3, 4).
 
-* _Continua_: variable que puede tomar cualquier valor dentro de un intervalo, es decir los valores pueden ser representados por números decimales. Como ejemplo, el peso (87.65 Kg) o la estatura de una persona (179.21 cm). Cuando el cero representa una ausencia de la característica, como por ejemplo la longitud (0 cm), la escalas de medida se conoce como _razón_; por otro lado una escala donde el cero representa un valor para la variable, se conoce como _intervalo_, un ejemplo es la escala de temperatura en grados Celsius, donde el cero (0°) puede representar el punto de congelación del agua.
+* _Continua_: variable que puede tomar cualquier valor dentro de un intervalo, es decir los valores pueden ser representados por números decimales. Como ejemplo, el peso (87.65 Kg) o la estatura de una persona (179.21 cm). Cuando el cero representa una ausencia de la característica, como por ejemplo la longitud (0 cm), la escalas de medida se conoce como _razón_; por otro lado una escala donde el cero representa un valor para la variable, se conoce como _intervalo_, un ejemplo es la escala de temperatura en grados Celsius, donde el cero (0°) puede representar el punto de congelación del agua y un valor de -10° también respresenta un valor en la escala.
 
 
 # Estadísticos
@@ -224,15 +224,15 @@ Cuando se tinene variables discretas, es posible que el resultado de $\overline{
 
 ## Mediana ($Me$)
 
-Es el valor central, cuando se ordenan de menor a mayor los valores. La mediana deja por enciame y por debajo de ella, el $50%$ de los datos.
+Es el valor central, cuando se ordenan de menor a mayor los valores. La mediana deja por encima y por debajo de ella, el $50%$ de los datos.
 
 No se ve afectada por valores extremos.
 
-* En distribuciones simétricas la media es aproximadamente igual a la modiana.
+* En distribuciones simétricas la media es aproximadamente igual a la mediana.
 
 * En distribuciones con sesgo a la derecha, la media tiende a ser mayor que la mediana
 
-* En distribuciones con sego a la izquierda la media tiende a ser mayor que la mediana.
+* En distribuciones con sesgo a la izquierda la media tiende a ser mayor que la mediana.
 
 
 ## Moda ($Mo$)
@@ -247,7 +247,7 @@ La moda es el valor que ocurre con mayor frecuencia, es decir el dato que más s
 
 ## Media ponderada($Mp$)
 
-Es una medida apropiada cuando en un conjunto de datos cada uno de ellos tiene una importancia relativa (o peso) respecto a los demás datos. Se obtiene multiplicando cad uno de los datos por su ponderación (peso) para luego sumarlos, obteniendo así una suma ponderada, después se divide esta, entre la sima de los pesos.
+Es una medida apropiada cuando en un conjunto de datos cada uno de ellos tiene una importancia relativa (o peso) respecto a los demás datos. Se obtiene multiplicando cada uno de los datos por su ponderación (peso) para luego sumarlos, obteniendo así una suma ponderada, después se divide esta, entre la sima de los pesos.
 
 
 # Medidas de dispersión
@@ -294,7 +294,7 @@ Cociente entre la desviación típica y la media aritmética, expresado en porce
 
 $$CV = \frac{S}{\overline{x}}*100$$
 
-Es una interpretación relativa del grado de variabilidad independinte de la ecala de la variable.
+Es una interpretación relativa del grado de variabilidad independiente de la escala de la variable.
 
 A mayor valor del $CV$, mayor heterogeneidad de los valores de la variable; y a menor $CV$, mayor homogeneidad de los valores de la avariable.
 
@@ -306,7 +306,7 @@ Percentiles, cuantiles y deciles, indican la posición relativa de un dato respe
 
 ## Percentiles
 
-Dividen la muestra en 100 partes iguales. Son los valores que dejan determindado porcentaje de observaciónes por debajo de ellos.
+Dividen la muestra en 100 partes iguales. Son los valores que dejan determinado porcentaje de observaciones por debajo de ellos.
 
 Ubicación del percentil:
 
@@ -341,7 +341,7 @@ Ubicación del cuartil:
 
 $$Q_k = \frac{k(n+1)}{4}$$
 
-Donde se ubica el mínimo valor, es el límite inferior ($L_i$); y para la posición del máximo valor se tiene el ímite superior ($L_s$).
+Donde se ubica el mínimo valor, es el límite inferior ($L_i$); y para la posición del máximo valor se tiene el límite superior ($L_s$).
 
 
 ### Rango intercuartil (RIQ)
@@ -386,15 +386,6 @@ Evalúa el grado de concentración de los datos alrededor de la media y de los e
 
 $$g_2 = \frac{n(n+1)}{(n-1)(n-2)(n-3)} * \frac{\sum_{i=1}^{n}(x_1 - \overline{x})^4}{S^4} - \frac{3(n-1)^2}{(n-2)(n-3)}$$
 
-
-<!--- 
-# Mejoras para el documento
-
-* Nombrar tablas y enumerarlas.
-* Enumerar ecuaciones.
-* Enumerar y nombrar gráficos.
-* Agregar ejemplos para moda , media, media.
---->
 
 # Referencias
 
